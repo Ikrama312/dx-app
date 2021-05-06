@@ -8,10 +8,11 @@ import {
   faUserAlt,
   faEnvelope,
   faPhoneAlt,
+  faMapMarker,
 } from "@fortawesome/free-solid-svg-icons";
 import user_img from "../../assets/img/user_img.png";
 
-const User_profile = ({ data, deleteDealer, blockDriver, unblockDriver }) => {
+const User_profile = ({ data, deleteDealer, blockDealer, unblockDealer }) => {
   return (
     <div className="mian-wrap-user w-100">
       <div className="p-3">
@@ -50,7 +51,7 @@ const User_profile = ({ data, deleteDealer, blockDriver, unblockDriver }) => {
               className="w-100 border-cus-danger mt-2 text-cus-danger d-flex align-items-center bg-none "
               type="button"
               onClick={() => {
-                data.isBlocked ? unblockDriver() : blockDriver();
+                data.isBlocked ? unblockDealer() : blockDealer();
               }}
             >
               <i className="text-cus-danger round-border-style ">
@@ -64,24 +65,12 @@ const User_profile = ({ data, deleteDealer, blockDriver, unblockDriver }) => {
         </div>
       </div>
       <div className="row mx-0">
-        <div className="col-sm-6 mt-2">
+        <div className="col-sm-12 mt-2">
           <div className="user-info-bar bg-trans-primary d-flex flex-wrap p-2 align-items-center radius-6">
             <i className="text-cus-primary mr-3">
-              <FontAwesomeIcon icon={faUserAlt} />
+              <FontAwesomeIcon icon={faMapMarker} />
             </i>
-            <span className="text-cus-primary">
-              {data.fullName && data.fullName.split(" ")[0]}
-            </span>
-          </div>
-        </div>
-        <div className="col-sm-6 mt-2">
-          <div className="user-info-bar bg-trans-primary d-flex flex-wrap p-2 align-items-center radius-6">
-            <i className=" text-cus-primary mr-3">
-              <FontAwesomeIcon icon={faUserAlt} />
-            </i>
-            <span className="text-cus-primary">
-              {data.fullName && data.fullName.split(" ")[1]}
-            </span>
+            <span className="text-cus-primary">{data.address}</span>
           </div>
         </div>
         <div className="col-sm-6 mt-2">
